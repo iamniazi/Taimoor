@@ -55,7 +55,7 @@ public class machine : MonoBehaviour {
     }
 
     public IEnumerator EnemyPatrol () {
-        print("Patroling"); 
+
         while (currentState == ENEMY_STATES.patrol) {
 
             checkMyVision.sensitivity = MySight.Sensitivity.HIGH;
@@ -74,7 +74,7 @@ public class machine : MonoBehaviour {
         
     }
     public IEnumerator EnemyChase () {
-        print("Chasing");
+       
         while (currentState == ENEMY_STATES.chase)
         {
             checkMyVision.sensitivity = MySight.Sensitivity.LOW ;
@@ -93,8 +93,7 @@ public class machine : MonoBehaviour {
                     CurrentState = ENEMY_STATES.patrol;
                 else
                 {
-                    print("Sqwitching to Attack!!!!!");
-                    CurrentState = ENEMY_STATES.attack;
+                  CurrentState = ENEMY_STATES.attack;
                 }
                 yield break;
             }
@@ -103,7 +102,7 @@ public class machine : MonoBehaviour {
         
     }
     public IEnumerator EnemyAttack () {
-        print ("Attacking enemy");
+       
         while (currentState == ENEMY_STATES.attack) {
             agent.isStopped = false;
             agent.SetDestination (playerTransform.position);
